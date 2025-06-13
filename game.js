@@ -24,6 +24,7 @@ const multiplayer = (status, boxes) => {
             currentPlayer = 'X';
             status.textContent = 'You are O. Waiting for opponent\'s move.';
             gameActive = false;
+            //////////////////////
         } else if (data === 'reset') { //zpracování zprávy o resetu hry
             for (const box of boxes) {
                 box.classList.remove('circle', 'cross'); // Vymaže značky z políček
@@ -39,6 +40,7 @@ const multiplayer = (status, boxes) => {
             } else {
                 status.textContent = 'New game started. You are O. Waiting for opponent\'s move.';
             }
+            /////////////////////////
         } else if (!isNaN(data)) {
             const i = Number(data);
             if (!board[i]) {
@@ -120,8 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
             gameActive = false;
         });
     }
-
+    ////////////////
     reset.addEventListener('click', () => {
         socket.send('reset'); //pošle na server zprávu o resetu hry
     });
+    ///////////////
 });
